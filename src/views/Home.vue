@@ -1,10 +1,22 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <div>
+      <p></p>
+      Title:
+      <input type="text" v-model="newMovieParams.title" />
+      <p></p>
+      Year:
+      <input type="text" v-model="newMovieParams.year" />
+      <p></p>
+      Plot:
+      <input type="text" v-model="newMovieParams.plot" />
+      <p></p>
+      <p></p>
+    </div>
+    <!-- <button v-on:click="addMovie()">addMovie</button> -->
     <button v-on:click="addMovie()">addMovie</button>
     <div v-for="movie in movies" :key="movie.id">
-      <h1>{{ movie.name }}</h1>
+      <h1>{{ movie.title }}</h1>
       <h2>{{ movie.year }}</h2>
     </div>
   </div>
@@ -19,6 +31,7 @@ export default {
   data: function () {
     return {
       movies: [],
+      newMovieParams: {},
     };
   },
   created: function () {
@@ -31,18 +44,28 @@ export default {
         console.log("All movies", this.movies);
       });
     },
-    addMovie: function () {
-      console.log("Add a movie");
-
-      var params = {
-        name: "The Count of Monte Cristo",
-        year: 1692,
-      };
-      axios.post("http://localhost:3000/movies", params).then((response) => {
-        console.log("Nice", response.data);
-        this.products.push(response.data);
-      });
+    createMovie: function () {
+      console.log("Added a movie");
+      axios
+        .post("http://localhost:3000/movies", this.newMovieParams)
+        .then((response) => {
+          console.log("Nice", response.data);
+          this.movies.push(response.data);
+        })
+        .catch((error) => console.log(error.response));
     },
-  }
+    // addMovie: function () {
+    //   console.log("Add a movie");
+
+    //   var params = {
+    //     name: "The Count of Monte Cristo",
+    //     year: 1692,
+    //   };
+    //   axios.post("http://localhost:3000/movies", params).then((response) => {
+    //     console.log("Nice", response.data);
+    //     this.products.push(response.data);
+    //   });
+    // },
+  },
 };
 </script>
