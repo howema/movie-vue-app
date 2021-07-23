@@ -20,14 +20,6 @@
       <h2>{{ movie.year }}</h2>
     </div>
   </div>
-  <div class="container">
-      <h2>{{ movie.title }}</h2>
-      <p>{{ movie.year }}</p>
-      <img v-bind:src="movie.image" alt="movie.title" />
-      <p></p>
-      <router-link to="/movies">Back to movies</router-link>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -40,14 +32,10 @@ export default {
     return {
       movies: [],
       newMovieParams: {},
-      movie: {},
     };
   },
   created: function () {
     this.indexMovies();
-    axios.get("/movies/" + this.$route.params.id).then((response) => {
-      this.movie = response.data;
-    });
   },
   methods: {
     indexMovies: function () {
