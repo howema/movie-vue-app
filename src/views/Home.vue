@@ -20,6 +20,14 @@
       <h2>{{ movie.year }}</h2>
     </div>
   </div>
+  <div class="container">
+      <h2>{{ movie.title }}</h2>
+      <p>{{ movie.year }}</p>
+      <img v-bind:src="movie.image" alt="movie.title" />
+      <p></p>
+      <router-link to="/movies">Back to movies</router-link>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -32,10 +40,14 @@ export default {
     return {
       movies: [],
       newMovieParams: {},
+      movie: {},
     };
   },
   created: function () {
     this.indexMovies();
+    axios.get("/movies/" + this.$route.params.id).then((response) => {
+      this.movie = response.data;
+    });
   },
   methods: {
     indexMovies: function () {
@@ -54,18 +66,6 @@ export default {
         })
         .catch((error) => console.log(error.response));
     },
-    // addMovie: function () {
-    //   console.log("Add a movie");
-
-    //   var params = {
-    //     name: "The Count of Monte Cristo",
-    //     year: 1692,
-    //   };
-    //   axios.post("http://localhost:3000/movies", params).then((response) => {
-    //     console.log("Nice", response.data);
-    //     this.products.push(response.data);
-    //   });
-    // },
   },
 };
 </script>
