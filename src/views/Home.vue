@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <div>
+      <input type="radio">
+      <label for="user">New html box</label>
+      <input id="user" type="text" name="newMovieParams.director" />
       <p></p>
       Title:
       <input type="text" v-model="newMovieParams.title" />

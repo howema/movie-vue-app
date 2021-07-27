@@ -30,7 +30,6 @@ const routes = [
   { path: "/logout", name: "logout", component: Logout },
   { path: "/movies", name: "moviesindex", component: MoviesIndex },
   { path: "/movies/new", name: "moviesnew", component: MoviesNew },
-  { path: "/movies/10", name: "moviesshow", component: MoviesShow },
   { path: "/movies/:id", name: "moviesshow", component: MoviesShow },
   { path: "/movies/:id/edit", name: "moviesedit", component: MoviesEdit },
 ];

@@ -1,12 +1,12 @@
 <template>
   <div class="moviesindex">
-    <h1>Here Come the movies!</h1>
-    <router-link to="/movies/16">Check out this movie</router-link>
-    <div v-for="movie in movies" :key="movie.id">
+    <h1>Here are the movies!</h1>
+    <!-- <router-link to="/movies/16">Check out this movie</router-link> -->
+    <div v-for="movie in movies" v-bind:key="movie.id">
       <router-link v-bind:to="`/movies/${movie.id}`">
         <h2>{{ movie.title }}</h2>
-        <p>{{ movie.body }}</p>
-        <img v-bind:src="movie.image" alt="movie.title" />
+        <p>{{ movie.plot }}</p>
+        <!-- <img v-bind:src="movie.image" alt="movie.title" /> -->
       </router-link>
       <!-- <p></p> -->
       <!-- <button>Buttonz!</button> -->

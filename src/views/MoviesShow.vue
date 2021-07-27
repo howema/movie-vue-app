@@ -2,8 +2,8 @@
   <div class="moviesshow">
     <div class="container">
       <h2>{{ movie.title }}</h2>
-      <p>{{ movie.body }}</p>
-      <img v-bind:src="movie.image" alt="movie.title" />
+      <p>{{ movie.plot }}</p>
+      <!-- <img v-bind:src="movie.image" alt="movie.title" /> -->
       <p></p>
       <router-link to="/movies">Back to movies</router-link>
     </div>
@@ -23,6 +23,7 @@ export default {
   created: function () {
     axios.get("/movies/" + this.$route.params.id).then((response) => {
       this.movie = response.data;
+      console.log(response.data);
     });
   },
 };
