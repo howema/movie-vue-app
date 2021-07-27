@@ -1,9 +1,6 @@
 <template>
   <div class="home">
     <div>
-      <input type="radio">
-      <label for="user">New html box</label>
-      <input id="user" type="text" name="newMovieParams.director" />
       <p></p>
       Title:
       <input type="text" v-model="newMovieParams.title" />
@@ -17,7 +14,7 @@
       <p></p>
     </div>
     <!-- <button v-on:click="addMovie()">addMovie</button> -->
-    <button v-on:click="addMovie()">addMovie</button>
+    <button v-on:click="addMovie()">Add a movie?</button>
     <div v-for="movie in movies" :key="movie.id">
       <h1>{{ movie.title }}</h1>
       <h2>{{ movie.year }}</h2>

@@ -1,7 +1,7 @@
 <template>
   <div class="MoviesNew">
     <form v-on:submit.prevent="createMovie()">
-      <h1>New Movie</h1>
+      <h1>Add a Movie!</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
@@ -9,14 +9,17 @@
         <label>Title:</label>
         <input type="text" v-model="newMovieParams.title" />
       </div>
+      <p></p>
       <div>
         <label>Year:</label>
         <input type="text" v-model="newMovieParams.year" />
       </div>
+      <p></p>
       <div>
         <label>Plot:</label>
         <input type="text" v-model="newMovieParams.plot" />
       </div>
+      <p></p>
       <input type="submit" value="Submit" />
     </form>
   </div>
