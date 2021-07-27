@@ -28,6 +28,7 @@ export default {
   data: function () {
     return {
       newMovieParams: { english: false },
+      errors: [],
     };
   },
   methods: {
