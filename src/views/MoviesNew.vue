@@ -24,26 +24,17 @@
 
 <script>
 import axios from "axios";
-
 export default {
   data: function () {
     return {
-      errors: [],
-      currentMoviesParams: {},
+      newMovieParams: { english: false },
     };
   },
-  created: function () {
-    axios.get(`/movies/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
-      this.currentMoviesParams = response.data;
-    });
-  },
   methods: {
-    updateMovie: function () {
-      console.log("Creating movie!");
-      axios.patch(`/movies/${this.$route.params.id}`, this.currentMoviesParams.then((response) => {
-        console.log(response.data);
-        this.$router.push(`/movies/${response.data.id}`);
+    newMovie: function () {
+      console.log(this.newMovieParams);
+      axios.post("http://localhost:3000/movies", this.newMovieParams).then((response) => {
+        console.log(response.data, response.errors);
       });
     },
   },
