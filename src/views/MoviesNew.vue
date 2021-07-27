@@ -7,15 +7,15 @@
       </ul>
       <div>
         <label>Title:</label>
-        <input type="text" v-model="newMoviesParams.title" />
+        <input type="text" v-model="newMovieParams.title" />
       </div>
       <div>
         <label>Year:</label>
-        <input type="text" v-model="newMoviesParams.year" />
+        <input type="text" v-model="newMovieParams.year" />
       </div>
       <div>
         <label>Plot:</label>
-        <input type="text" v-model="newMoviesParams.plot" />
+        <input type="text" v-model="newMovieParams.plot" />
       </div>
       <input type="submit" value="Submit" />
     </form>
