@@ -22,6 +22,9 @@
        <ul>
       ◉ View your homepage, although I'm not sure what it is supposed to do!
       </ul>
-    </p>
+        <ul>
+      ◉ Also see actors, and genres, etc. In good time.
+      </ul>
+  </p>
   </div>
 </template>
