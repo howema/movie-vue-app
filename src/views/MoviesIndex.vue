@@ -1,6 +1,9 @@
 <template>
   <div class="moviesindex">
     <h1>All Monster Movies:</h1>
+    <p></p>
+    <p></p>
+    <p></p>
     <!-- <router-link to="/movies/16">Check out this movie</router-link> -->
     <div v-for="movie in movies" v-bind:key="movie.id">
       <router-link v-bind:to="`/movies/${movie.id}`">
