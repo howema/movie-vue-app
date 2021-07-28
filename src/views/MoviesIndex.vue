@@ -1,6 +1,7 @@
 <template>
   <div class="moviesindex">
     <h1>All Monster Movies:</h1>
+    <div class="mx-auto" style="width: 500px;">
     <div v-for="movie in movies" v-bind:key="movie.id">
 
         <div class="card mb-3" style="max-width: 540px">
@@ -25,6 +26,7 @@
             </div>
           </div>
         </div>
+    </div>
     </div>
   </div>
 </template>
