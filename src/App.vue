@@ -1,20 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-      |
-      <router-link to="/signup">Signup</router-link>
-      |
-      <router-link to="/login">Login</router-link>
-      |
-      <router-link to="/logout">Logout</router-link>
-      |
-      <router-link to="/movies">Movies</router-link>
-      |
-      <router-link to="/movies/new">Create</router-link>
-    </div> -->
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -41,44 +26,22 @@
               <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item"></li>
               <li v-if="!isLoggedIn()">
                 <a class="nav-link" href="/signup">Sign-up</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item"></li>
               <li v-if="!isLoggedIn()">
                 <a class="nav-link" href="/login">Login</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/movies/new">Add Movie</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item"></li>
               <li v-if="isLoggedIn()">
                 <a class="nav-link" href="/logout">Logout</a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li> -->
             </ul>
-            <!-- <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
           </div>
         </div>
       </nav>
@@ -93,7 +56,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #000000;
+
 }
 
 #nav {
@@ -102,11 +66,15 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #50492c;
 }
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+body {
+  background-image: url("./assets/urban-royalty.gif");
 }
 </style>
 
