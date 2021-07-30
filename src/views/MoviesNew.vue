@@ -18,7 +18,8 @@
       <div>
         <label>Plot:</label>
         <input type="text" v-model="newMovieParams.plot" />
-        <small>{{ 250 - newMovieParams.plot.length }} characters remaining</small>
+        <p></p>
+        <small>{{ 250 - newMovieParams.plot.length }} characters in plot description remaining</small>
       </div>
       <p></p>
       <input type="submit" value="Submit" />

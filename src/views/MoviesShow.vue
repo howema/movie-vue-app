@@ -1,14 +1,17 @@
 <template>
   <div class="moviesshow">
     <div class="container">
-      <h1>{{ movie.title }}</h1>
-      <h2>{{ movie.year }}</h2>
+      <h1>{{ movie.title }} ({{ movie.year }})</h1>
+      <h2>{{  }}</h2>
       <p>{{ movie.plot }}</p>
-      <p>{{ movie.genre }}</p>
+      <p>Directed by: {{ movie.director }}</p>
+      <p>Is it in English? {{ movie.english }}</p>
+      <p>{{ movie.image }}</p>
       <!-- <p>{{ movie.actor.first_name }}</p> -->
       <!-- <img v-bind:src="movie.image" alt="movie.title" /> -->
       <p></p>
       <router-link v-bind:to="`/movies/${movie.id}/edit`"><button>Edit movie</button></router-link>
+      <p></p>
       <router-link to="/movies">Back to movies</router-link>
     </div>
   </div>
