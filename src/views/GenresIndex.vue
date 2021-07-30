@@ -1,31 +1,28 @@
 <template>
   <div class="genresindex">
     <h1>All Monster Genres:</h1>
-    <div class="mx-auto" style="width: 500px;">
+    <div class="mx-auto" style="width: 500px">
       Search by genre:
       <input v-model="titleFilter" />
       <p></p>
-         <div
-          v-for="genre in filterBy(genres, titleFilter, 'name')"
-          :key="genre.id"
-          >
-      <p></p>
+      <div v-for="genre in filterBy(genres, titleFilter, 'name')" :key="genre.id">
+        <p></p>
 
         <div class="card mb-3" style="max-width: 540px">
           <div class="row g-0">
             <div class="col-md-4">
               <!-- <v-bind:src="{{genre.image}}" class="img-fluid rounded-start" > -->
             </div>
-          
+
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">{{ genre.name }}</h5>
                 <p class="card-text">
-               
                   <!-- <li v-if="isInEnglish" -->
-                  {{ genre.english }}</p>
+                  {{ genre.english }}
+                </p>
                 <router-link v-bind:to="`/genres/${genre.id}`">
-                <small><button type="button" class="btn btn-info">See Movies</button></small>
+                  <small><button type="button" class="btn btn-info">See Movies</button></small>
                 </router-link>
                 <!-- <p></p>
               <p>director: {{ genre.director }}</p> -->
@@ -69,4 +66,3 @@ export default {
   },
 };
 </script>
-
