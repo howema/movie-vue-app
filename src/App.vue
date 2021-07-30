@@ -42,6 +42,9 @@
               <li v-if="isLoggedIn()">
                 <a class="nav-link" href="/actors">Actors</a>
               </li>
+              <li v-if="isLoggedIn()">
+                <a class="nav-link" href="/genres">Genres</a>
+              </li>
               <li class="nav-item"></li>
               <li class="nav-item"></li>
               <li v-if="isLoggedIn()">

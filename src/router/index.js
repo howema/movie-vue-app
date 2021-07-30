@@ -9,6 +9,7 @@ import MoviesNew from "../views/MoviesNew.vue";
 import MoviesShow from "../views/MoviesShow.vue";
 import MoviesEdit from "../views/MoviesEdit.vue";
 import ActorsIndex from "../views/ActorsIndex.vue";
+import GenresIndex from "../views/GenresIndex.vue";
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,7 @@ const routes = [
   { path: "/movies/:id", name: "moviesshow", component: MoviesShow },
   { path: "/movies/:id/edit", name: "moviesedit", component: MoviesEdit },
   { path: "/actors", name: "actorsindex", component: ActorsIndex },
+  { path: "/genres", name: "genresindex", component: GenresIndex }
 ];
 
 const router = new VueRouter({
