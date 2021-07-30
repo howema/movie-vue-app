@@ -1,6 +1,6 @@
 <template>
   <div class="MoviesNew">
-    <form v-on:submit.prevent="createMovie()">
+    <form v-on:submit.prevent="newMovie()">
       <h1>Add a Movie!</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>

@@ -1,21 +1,33 @@
 <template>
-  <div class="moviesedit">
+  <div class="movies-edit">
     <form v-on:submit.prevent="updateMovie()">
-      <h1>New Movie</h1>
+      <h1>Edit Movie</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
       <div>
         <label>Title:</label>
-        <input type="text" v-model="currentMoviesParams.title" />
+        <input type="text" v-model="currentMovieParams.title" />
       </div>
       <div>
         <label>Year:</label>
-        <input type="text" v-model="currentMoviesParams.year" />
+        <input type="text" v-model="currentMovieParams.year" />
       </div>
       <div>
         <label>Plot:</label>
-        <input type="text" v-model="currentMoviesParams.plot" />
+        <input type="text" v-model="currentMovieParams.plot" />
+      </div>
+      <div>
+        <label>Director:</label>
+        <input type="text" v-model="currentMovieParams.director" />
+      </div>
+      <div>
+        <label>English:</label>
+        <input type="text" v-model="currentMovieParams.english" />
+      </div>
+      <div>
+        <label>Image Url:</label>
+        <input type="text" v-model="currentMovieParams.image" />
       </div>
       <input type="submit" value="Submit" />
     </form>
@@ -24,20 +36,24 @@
 
 <script>
 import axios from "axios";
-
 export default {
   data: function () {
     return {
+      currentMovieParams: {},
       errors: [],
-      newMoviesParams: {},
     };
   },
+  created: function () {
+    axios.get(`/movies/${this.$route.params.id}`).then((response) => {
+      console.log("Movie info:", response.data);
+      this.currentMovieParams = response.data;
+    });
+  },
   methods: {
-    createMovie: function () {
-      console.log("Creating movie!");
-      axios.post("/movies", this.newMoviesParams).then((response) => {
-        this.$router.push("/movies");
+    updateMovie: function () {
+      axios.patch(`/movies/${this.$route.params.id}`, this.currentMovieParams).then((response) => {
         console.log(response.data);
+        this.$router.push(`/movies/${response.data.id}`);
       });
     },
   },

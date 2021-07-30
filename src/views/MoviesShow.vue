@@ -8,6 +8,7 @@
       <!-- <p>{{ movie.actor.first_name }}</p> -->
       <!-- <img v-bind:src="movie.image" alt="movie.title" /> -->
       <p></p>
+      <router-link v-bind:to="`/movies/${movie.id}/edit`"><button>Edit movie</button></router-link>
       <router-link to="/movies">Back to movies</router-link>
     </div>
   </div>

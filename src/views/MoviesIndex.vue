@@ -30,8 +30,12 @@
                 <h5 class="card-title">{{ movie.title }} ({{ movie.year }})</h5>
                 <p class="card-text">
                   {{ movie.plot }}
-                
                 </p>  
+                <p>{{ movie.director }}</p>
+
+                <p>
+                  <!-- <li v-if="isInEnglish" -->
+                  {{ movie.english }}</p>
                 <router-link v-bind:to="`/movies/${movie.id}`">
                 <small><button type="button" class="btn btn-info">More Info</button></small>
                 </router-link>
@@ -65,6 +69,9 @@ export default {
     this.moviesIndex();
   },
   methods: {
+    // isInEnglish: function () {
+    //   return this.message("Yes");
+    // }
     moviesIndex: function () {
       axios.get("http://localhost:3000/movies").then((response) => {
         this.movies = response.data;
