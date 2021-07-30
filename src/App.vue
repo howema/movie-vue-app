@@ -17,32 +17,35 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/movies">All Movies</a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
               </li>
-              <li class="nav-item"></li>
               <li v-if="!isLoggedIn()">
                 <a class="nav-link" href="/signup">Sign-up</a>
               </li>
-              <li class="nav-item"></li>
               <li v-if="!isLoggedIn()">
                 <a class="nav-link" href="/login">Login</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/movies/new">Add Movie</a>
+              <li v-if="isLoggedIn()">
+                <a class="nav-link" href="/movies">Movies</a>
               </li>
               <li class="nav-item"></li>
               <li v-if="isLoggedIn()">
-                <a class="nav-link" href="/logout">Logout</a>
+                <a class="nav-link" href="/movies/new">Add Movie</a>
               </li>
               <li v-if="isLoggedIn()">
                 <a class="nav-link" href="/actors">Actors</a>
+              </li>
+              <li class="nav-item"></li>
+              <li class="nav-item"></li>
+              <li v-if="isLoggedIn()">
+                <a class="nav-link" href="/logout">Logout</a>
               </li>
             </ul>
           </div>

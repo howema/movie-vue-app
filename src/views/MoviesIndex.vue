@@ -24,6 +24,7 @@
             <div class="col-md-4">
               <v-bind:src="{{movie.image}}" class="img-fluid rounded-start" >
             </div>
+          
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">{{ movie.title }} ({{ movie.year }})</h5>
