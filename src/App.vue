@@ -42,15 +42,18 @@
                 <a class="nav-link" href="/about">About</a>
               </li>
               <li class="nav-item">
+              <li v-if="!isLoggedIn()">
                 <a class="nav-link" href="/signup">Sign-up</a>
               </li>
               <li class="nav-item">
+              <li v-if="!isLoggedIn()">
                 <a class="nav-link" href="/login">Login</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/movies/new">Add Movie</a>
               </li>
               <li class="nav-item">
+              <li v-if="isLoggedIn()">
                 <a class="nav-link" href="/logout">Logout</a>
               </li>
               <!-- <li class="nav-item dropdown">
@@ -106,3 +109,13 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      return localStorage.getItem("jwt");
+    },
+  },
+};
+</script>
