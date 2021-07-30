@@ -18,6 +18,7 @@
       <div>
         <label>Plot:</label>
         <input type="text" v-model="newMovieParams.plot" />
+        <small>{{ 250 - newMovieParams.plot.length }} characters remaining</small>
       </div>
       <p></p>
       <input type="submit" value="Submit" />
@@ -30,7 +31,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newMovieParams: { english: false },
+      newMovieParams: { plot: "", english: false },
       errors: [],
     };
   },
