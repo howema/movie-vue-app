@@ -2,7 +2,22 @@
   <div class="moviesindex">
     <h1>All Monster Movies:</h1>
     <div class="mx-auto" style="width: 500px;">
-    <div v-for="movie in movies" v-bind:key="movie.id">
+      Search by title:
+      <input v-model="titleFilter" />
+      <p></p>
+      Search by keyword:
+      <input v-model="keywordFilter" />
+    <!-- <div v-for="movie in movies" v-bind:key="movie.id"> -->
+         <div
+          v-for="movie in filterBy(movies, titleFilter, 'title')"
+          :key="movie.id"
+          >
+          <div
+          v-for="movie in filterBy(movies, keywordFilter, 'plot')"
+          :key="movie.id"
+          >
+          </div>
+      <p></p>
 
         <div class="card mb-3" style="max-width: 540px">
           <div class="row g-0">
@@ -26,20 +41,25 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
+
 export default {
   data: function () {
     return {
       message: "Here are movies",
       movies: [],
+      titleFilter: "",
+      keywordFilter: "",
     };
   },
+  mixins: [Vue2Filters.mixin],
   created: function () {
     this.moviesIndex();
   },
