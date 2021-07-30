@@ -30,6 +30,7 @@
         <input type="text" v-model="currentMovieParams.image" />
       </div>
       <input type="submit" value="Submit" />
+      <button v-on:click="destroyMovie()">Delete</button>
     </form>
   </div>
 </template>
@@ -50,6 +51,12 @@ export default {
     });
   },
   methods: {
+    destroyMovie: function () {
+      axios.delete(`/movies/${this.$route.params.id}`).then((response) => {
+        console.log("Movie destroyed", response.data);
+        this.$router.push("/movies");
+      });
+    },
     updateMovie: function () {
       axios.patch(`/movies/${this.$route.params.id}`, this.currentMovieParams).then((response) => {
         console.log(response.data);
